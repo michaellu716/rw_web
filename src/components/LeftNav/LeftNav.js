@@ -15,14 +15,14 @@ export default class LeftNav extends Component {
                             <div className="sections">
                                 <ul>
                                     <li>
-                                        <a href="#"> <img src="assets/images/icons/news.png" alt=""/>
+                                        <a href="/"> <img src="assets/images/icons/news.png" alt=""/>
                                             <span> Feed </span>
                                         </a>
                                     </li>
                                     <li>
-                                        <Link to="/watchlist"><img src="assets/images/icons/list.png" alt=""/>
+                                        <a href="/watchlist"> <img src="assets/images/icons/list.png" alt=""/>
                                             <span> WatchList </span>
-                                        </Link>
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="#"> <img src="assets/images/icons/info.png" alt=""/>

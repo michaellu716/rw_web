@@ -8252,6 +8252,15 @@ header .opts_icon_link:hover {
   overflow: visible;
 }
 
+.main_content_tv {
+  position: relative;
+  z-index: 5;
+  display: block;
+  margin-right: 175px;
+  padding-top: 65px;
+  overflow: visible;
+}
+
 .main_content_inner {
   display: block;
   padding: 20px;
