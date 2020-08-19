@@ -11,8 +11,8 @@ export default class TopNav extends Component {
                             <span></span></div>
 
                         <div id="logo">
-                            <a href="homepage.html"> <img src="assets/images/logo.png" alt=""/></a>
-                            <a href="homepage.html"> <img src="assets/images/logo-light.png" className="logo-inverse"
+                            <a href="homepage.html"> <img src="#" alt=""/></a>
+                            <a href="homepage.html"> <img src="#" className="logo-inverse"
                                     alt=""/></a>
                         </div>
                         <div className="head_search">

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class LeftNav extends Component {
     render() {
@@ -19,9 +20,9 @@ export default class LeftNav extends Component {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/watchlist.html"> <img src="assets/images/icons/list.png" alt=""/>
+                                        <Link to="/watchlist"><img src="assets/images/icons/list.png" alt=""/>
                                             <span> WatchList </span>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
                                         <a href="#"> <img src="assets/images/icons/info.png" alt=""/>

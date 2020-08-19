@@ -11,7 +11,8 @@ export default class NewsFeed extends Component {
         }
     }
     componentDidMount(){
-        fetch('https://static.newsfilter.io/landing-page/main-content.json')
+        let newsfilterAPI = 'https://static.newsfilter.io/landing-page/main-content.json';
+        fetch(newsfilterAPI)
         .then((response) => response.json())
         .then((data) => this.setState({data})); 
     }
@@ -49,7 +50,7 @@ export default class NewsFeed extends Component {
                                         <a href={dataContent.url} target="_blank" rel="noopener"><button class="button primary circle readMore">Read More</button></a>
                                </div>
                                     {/* <Modal isOpen={true}>
-                                            <h1>ghaasdasdasdsadsadassg</h1>
+                                            <h1>test</h1>
                                     </Modal> */}
                                 </a>
                                :   <a href={dataContent.url} className="blog-post" target="_blank" rel="noopener">
