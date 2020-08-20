@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+// import Modal from 'react-modal';
+
+
 
 export default class NewsFeed extends Component {
     
@@ -13,12 +16,16 @@ export default class NewsFeed extends Component {
         }
     }
     componentDidMount(){
+
+        // Modal.setAppElement('.main_content');
+
         fetch('https://static.newsfilter.io/landing-page/main-content.json')
         .then((response) => response.json())
         .then((data) => {
+            let new_data = this.sort(data);
             this.setState({
-                data: data,
-                filterData: data
+                data: new_data,
+                filterData: new_data
             })
         }); 
     }
@@ -36,9 +43,25 @@ export default class NewsFeed extends Component {
         this.setState({
           ...this.state,
           filterInput: value,
-          filterData: value === '' ? filterSelect : filterArr
+          filterData: value === '' ? this.sort(filterSelect) : this.sort(filterArr)
         });
     };
+
+    sort(data) {
+        let source1 = data.filter(val => val.source.id === 'bloomberg');
+        let source2 = data.filter(val => val.source.id === 'reuters');
+        let source3 = data.filter(val => val.source.id === 'cnbc');
+        let new_data = [];
+        for (let index = 0; index < Math.max(source1.length, source2.length, source3.length); index++) {
+            if (index < source1.length)
+            new_data.push(source1[index])
+            if (index < source2.length)
+            new_data.push(source2[index])
+            if (index < source3.length)
+            new_data.push(source3[index])
+        }
+        return new_data;
+    }
 
     toggleOption = (event) => {
         const value = event.target.value;
@@ -57,30 +80,10 @@ export default class NewsFeed extends Component {
             }
             this.setState({
             ...this.state,
-            filterData: filterArr
+            filterData: this.sort(filterArr)
             });
         });
     };
-
-    addWatchList (dataContent) {
-        let watchList = [];
-        let duplicate = false;
-        watchList = localStorage.getItem('watchList') === undefined || localStorage.getItem('watchList') === null ? [] : (JSON.parse(localStorage.getItem('watchList')).length === 0 ? [] : JSON.parse(localStorage.getItem('watchList')));
-        watchList.forEach(element => {
-            if (element.title === dataContent.title) {
-                duplicate = true;
-                return false;
-            }
-            return true;
-        });
-        if (duplicate) {
-            alert('Already Added!');
-        } else {
-            watchList.push({title: dataContent.title, description: dataContent.description, url: dataContent.url});
-            localStorage.setItem('watchList', JSON.stringify(watchList));
-            alert('Added!');
-        }
-    }
     
     render() {
 
@@ -98,6 +101,22 @@ export default class NewsFeed extends Component {
             }
           }
 
+         // Todo tomorrow    
+        //   var subtitle;
+        //     const [modalIsOpen,setIsOpen] = React.useState(false);
+        //     function openModal() {
+        //         setIsOpen(true);
+        //     }
+            
+        //     function afterOpenModal() {
+        //         // references are now sync'd and can be accessed.
+        //         subtitle.style.color = '#f00';
+        //     }
+            
+        //     function closeModal(){
+        //         setIsOpen(false);
+        //     }
+
 
         return (
                 <div className="main_content">
@@ -105,7 +124,6 @@ export default class NewsFeed extends Component {
                         <div className="heading">
                             <h1> News Feed </h1>
                             <div className="filter">
-                            {/* <button className="" onClick={() => this.props.history.push('/watchlist')}>View Watchlist</button> */}
                             <div className="head_search">
                                 <div className="head_search_cont">
                                 <input
@@ -144,7 +162,7 @@ export default class NewsFeed extends Component {
                             <div className="uk-grid-large" key={index}>
                             <div className="uk-width-expand@m uk-first-column"> 
                                 <div>
-                                    <a href={dataContent.url} className="blog-post" target="_blank" rel="noopener">
+                                    <a href={dataContent.url} className="blog-post" target="_blank" rel="noopener noreferrer">
                                     {dataContent.imageUrl.length > 0 && <div className="blog-post-thumbnail">
                                         <div className="blog-post-thumbnail-inner">
                                             <img src={dataContent.imageUrl} alt={dataContent.title}/>
@@ -161,6 +179,9 @@ export default class NewsFeed extends Component {
                                         </div>
                                         <h3>{dataContent.title}</h3>
                                         <p>{dataContent.description}</p>
+                                        {/* <a href={dataContent.url} target="_blank" rel="noopener noreferrer" className="button primary circle readMore"> */}
+                                            <button className="button primary circle">Read More</button>
+                                        {/* </a> */}
                                     </div>
                                     </a>
                                 </div>
@@ -169,6 +190,26 @@ export default class NewsFeed extends Component {
                         ))
                         }
                     </div>
+                    {/* 
+                        Todo Tomorrow
+                    <Modal
+                                    isOpen={modalIsOpen}
+                                    onAfterOpen={afterOpenModal}
+                                    onRequestClose={closeModal}
+                                    contentLabel="Example Modal"
+                                    >
+                            
+                                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
+                                    <button onClick={closeModal}>close</button>
+                                    <div>I am a modal</div>
+                                    <form>
+                                        <input />
+                                        <button>tab navigation</button>
+                                        <button>stays</button>
+                                        <button>inside</button>
+                                        <button>the modal</button>
+                                    </form>
+                            </Modal> */}
             </div>
     
         )
