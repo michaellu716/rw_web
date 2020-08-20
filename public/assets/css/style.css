@@ -11213,6 +11213,7 @@ span.video-post-time {
   display: flex;
   background: #fff;
   margin-bottom: 35px;
+  margin-top: 10px;
   /* box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1); */
   max-width: 760px;
   border-radius: 7px;
@@ -13367,4 +13368,24 @@ ul.story-side-list li a .story-user-innr p span.story-time-ago{
 }
 .tweet-footer-btn span {
   margin-left: 8px;
+}
+.news_source{
+  margin-left:10px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
 }

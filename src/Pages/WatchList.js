@@ -205,6 +205,7 @@ export default class TradingViewWidget extends PureComponent {
     if (config.popup_height && typeof config.popup_height === 'number') {
       config.popup_height = config.popup_height.toString();
     }
+
     new TradingView[widgetType](config);
   };
 

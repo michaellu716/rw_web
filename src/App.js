@@ -15,7 +15,7 @@ class App extends React.Component {
               <LeftNav/>
               <Switch>
                     <Route exact path="/" component={Main}/>
-                    <Route path="/watchlist" component={WatchList} />
+                    <Route path={"/watchlist"} component={WatchList} />
               </Switch>
           </div>
          </Router>

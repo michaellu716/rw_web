@@ -12,10 +12,10 @@ export default class TopNav extends Component {
 
                         <div id="logo">
                             <a href="homepage.html"> <img src="#" alt=""/></a>
-                            <a href="homepage.html"> <img src="#" className="logo-inverse"
+                            <a href="homepage.html"> <img src="assets/images/logo-light.png" className="logo-inverse"
                                     alt=""/></a>
                         </div>
-                        <div className="head_search">
+                        {/* <div className="head_search">
                             <div className="head_search_cont">
                                 <input value="" type="text" className="form-control"
                                     placeholder="Search for Stocks , Latest News and more.." autocomplete="off"/>
@@ -25,7 +25,7 @@ export default class TopNav extends Component {
                             <div uk-dropdown="pos: top;mode:click;animation: uk-animation-slide-bottom-small"
                                 className="dropdown-search">
                                 <ul className="dropdown-search-list">
-                                    <li cclassNamelass="list-title"> Recent Searches </li>
+                                    <li className="list-title"> Recent Searches </li>
                                     <li> <a href="#"> <img src="assets/images/group/group-2.jpg" alt=""/> Apple</a> </li>
                                     <li> <a href="#"> <img src="assets/images/group/group-4.jpg" alt=""/> Microsoft</a> </li>
                                     <li> <a href="#"> <img src="assets/images/group/group-5.jpg" alt=""/> Teslsa </a> </li>
@@ -34,7 +34,7 @@ export default class TopNav extends Component {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
                         <Notifications/>
                     </div>
                 </header>

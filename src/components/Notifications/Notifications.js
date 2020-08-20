@@ -14,7 +14,6 @@ export default class Notifications extends Component {
                     className="dropdown-notifications">
 
                     <div className="dropdown-notifications-content" data-simplebar>
-
                         <div className="dropdown-notifications-headline">
                             <h4>Notifications </h4>
                             <a href="#">
@@ -22,7 +21,7 @@ export default class Notifications extends Component {
                                     uk-tooltip="title: Notifications settings ; pos: left"></i>
                             </a>
                         </div>
-
+                       
                         <ul>
                             <li>
                                 <a href="#">
